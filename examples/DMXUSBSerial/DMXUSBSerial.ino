@@ -102,7 +102,7 @@ void gotDMXCallback(int slots) {
 void doOutputMode() {
   uint8_t label = eSerial.readPacket();
   if ( label == ENTTEC_LABEL_SEND_DMX ) {
-    int s = eSerial.numberOfSlots();
+    int s = eSerial.numberOfSlots() + 1;
     for(int i=0; i<s; i++) {
       LXSerialDMX.setSlot(i,eSerial.getSlot(i));
     }
@@ -126,7 +126,7 @@ void doInputMode() {
     return;
   }
   if ( got_dmx ) {
-    int msg_size = got_dmx + 1;
+    int msg_size = got_dmx;
 	eSerial.writeDMXPacket(LXSerialDMX.dmxData(), msg_size);
     got_dmx = 0;
   }

@@ -164,7 +164,7 @@ uint8_t LXENTTECSerial::readPacket( void ) {
 //  Important:  must call Serial.begin(<baud>) before calling this method
 
 void LXENTTECSerial::writeDMXPacket( void ) {
-   this->writeDMXPacket(_dmx_data, _dmx_slots);
+   this->writeDMXPacket(_dmx_data, _dmx_slots+1);	//includes start code
 }
 
 //  ***** writeDMXPacket(buffer, length) *****
@@ -175,12 +175,14 @@ void LXENTTECSerial::writeDMXPacket( void ) {
 //  Important:  must call Serial.begin(<baud>) before calling this method
 
 void LXENTTECSerial::writeDMXPacket( uint8_t *buffer, int length ) {
-	uint8_t header[4];
+	int total_length = length + 1;
+	uint8_t header[5];
 	header[0] = 0x7E;
 	header[1] = ENTTEC_LABEL_RECEIVED_DMX;
-	header[2] = length & 0xff;
-	header[3] = length >> 8;
-	Serial.write(header,4);
+	header[2] = total_length & 0xff;
+	header[3] = total_length >> 8;
+	header[4] = 0;						//status byte unused at present
+	Serial.write(header,5);
 	Serial.write(buffer, length);
 	header[0] = 0xE7;
 	Serial.write(header,1);
