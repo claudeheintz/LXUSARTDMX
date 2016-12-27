@@ -1,6 +1,6 @@
 /* LXArtNetEthernet2.h
    Copyright 2015 by Claude Heintz Design
-   This code is in the public domain
+   see: http://www.claudeheintzdesign.com/lx/opensource.html for license
 
 	Art-Net(TM) Designed by and Copyright Artistic Licence Holdings Ltd.
 */

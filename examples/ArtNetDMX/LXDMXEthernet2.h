@@ -1,6 +1,6 @@
 /* LXDMXEthernet2.h
    Copyright 2015 by Claude Heintz Design
-   This code is in the public domain
+   see: http://www.claudeheintzdesign.com/lx/opensource.html for license
 */
 
 #ifndef LXDMXETHERNET_H
@@ -94,9 +94,9 @@ class LXDMXEthernet {
 
 see  https://github.com/aallan/Arduino/blob/3811729f82ef05f3ae43341022e7b65a92d333a2/libraries/Ethernet/EthernetUdp.cpp
 
-1) Locate the Ethernet2 library in the 1.7 IDE
-   Mac OS X Control-click Arduino.app and select "Show Package Contents" from the popup menu
-            Navigate to Arduino.app/Contents/Java/libraries/Ethernet2
+1) Locate the Ethernet2 library
+   If you have installed this library, it will be located with other libraries in the <sketchbook>/libraries folder.
+   If it is included in the IDE, you will need to search within the IDE files to find the libraries folder.
    
 2) Duplicate the Ethernet2 library in your sketchbook folder (~/Documents/Arduino/libraries)
    Add the required method as follows:

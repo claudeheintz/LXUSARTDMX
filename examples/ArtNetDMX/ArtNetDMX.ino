@@ -9,6 +9,9 @@
 
  This sketch requires a DMXLibrary,
  LXUSARTDMX is a basic, easy to understand library.
+ 
+ This example uses a simplified version of the LXDMXEthernet library:
+ https://github.com/claudeheintz/LXDMXEthernet_library
 
   The sketch receives incoming UDP packets.  If a received packet is
   Art-Net DMX output, it uses the microcontroller's USART to transmit
